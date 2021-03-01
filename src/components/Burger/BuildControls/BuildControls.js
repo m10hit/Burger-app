@@ -7,9 +7,19 @@ const BuildControls = (props) => {
     <BuildControl
       key={label}
       label={label.charAt(0).toUpperCase() + label.slice(1)}
+      added={() => props.ingredientAdded(label)}
+      removed={() => props.ingredientRemoved(label)}
+      disabled={props.disabled[label]}
     />
   ));
 
-  return <div className={classes.BuildControls}>{transformedArray}</div>;
+  return (
+    <div className={classes.BuildControls}>
+      <p>
+        <strong>Current Price:{props.price.toFixed(2)}</strong>
+      </p>
+      {transformedArray}
+    </div>
+  );
 };
 export default BuildControls;
