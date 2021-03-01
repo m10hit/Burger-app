@@ -19,7 +19,11 @@ const BuildControls = (props) => {
         <strong>Current Price:{props.price.toFixed(2)}</strong>
       </p>
       {transformedArray}
-      <button disabled={!props.purchaseable} className={classes.OrderButton}>
+      <button
+        disabled={!props.purchaseable}
+        className={classes.OrderButton}
+        onClick={props.ordered}
+      >
         Order Now
       </button>
     </div>
